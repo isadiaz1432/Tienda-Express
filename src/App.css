@@ -1,0 +1,811 @@
+/* Define los estilos generales y los colores principales de la aplicación. */
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* Establece la fuente de los textos, utilizando alternativas según el sistema. */
+  color: #202943; /* Define el color general del texto. */
+  background: #f4f6fb; /* Establece el color de fondo general. */
+  font-synthesis: none; /* Evita que el navegador genere estilos de fuente artificiales. */
+  text-rendering: optimizeLegibility; /* Mejora la legibilidad del texto. */
+  -webkit-font-smoothing: antialiased; /* Suaviza la apariencia de las letras en navegadores compatibles. */
+}
+
+/* Aplica el modelo de caja a todos los elementos de la página. */
+* {
+  box-sizing: border-box; /* Incluye el relleno y el borde dentro del tamaño total del elemento. */
+}
+
+/* Configura la estructura general del documento. */
+body {
+  margin: 0; /* Elimina el margen predeterminado del navegador. */
+  min-width: 320px; /* Establece un ancho mínimo para pantallas pequeñas. */
+  min-height: 100vh; /* Hace que el documento ocupe como mínimo toda la altura de la pantalla. */
+  background: #f4f6fb; /* Define el fondo de la página. */
+}
+
+/* Utiliza la misma fuente en botones, campos de texto y selectores. */
+button, input, select {
+  font: inherit; /* Hereda la fuente del elemento contenedor. */
+}
+
+/* Configura el cursor de los botones para indicar que son interactivos. */
+button {
+  cursor: pointer; /* Muestra el cursor de mano al pasar sobre un botón. */
+}
+
+/* Define el contenedor principal de la aplicación. */
+.app {
+  min-height: 100vh; /* Garantiza que la aplicación ocupe al menos toda la pantalla. */
+}
+
+/* Diseña la barra lateral de navegación. */
+.sidebar {
+  position: fixed; /* Mantiene la barra lateral fija en la pantalla. */
+  inset: 0 auto 0 0; /* La ubica arriba, abajo y a la izquierda. */
+  width: 250px; /* Establece el ancho de la barra lateral. */
+  padding: 30px 19px; /* Agrega espacio interior vertical y horizontal. */
+  display: flex; /* Activa el modelo de distribución flexible. */
+  flex-direction: column; /* Organiza los elementos de arriba hacia abajo. */
+  color: #dbe4ff; /* Define el color general del texto lateral. */
+  background: #172554; /* Establece el fondo azul oscuro. */
+  z-index: 10; /* Mantiene la barra por encima de otros elementos. */
+}
+
+/* Organiza el logotipo y el nombre de la tienda. */
+.brand {
+  display: flex; /* Coloca el símbolo y el texto en una fila. */
+  align-items: center; /* Alinea verticalmente los elementos. */
+  gap: 12px; /* Separa el símbolo del texto. */
+  margin: 0 0 45px; /* Agrega espacio debajo de la marca. */
+}
+
+/* Diseña el cuadro que contiene la letra de la marca. */
+.brand-icon {
+  width: 44px; /* Define el ancho del símbolo. */
+  height: 44px; /* Define la altura del símbolo. */
+  display: grid; /* Permite centrar el contenido con Grid. */
+  place-items: center; /* Centra la letra horizontal y verticalmente. */
+  flex-shrink: 0; /* Evita que el cuadro se encoja. */
+  border-radius: 14px; /* Redondea las esquinas del cuadro. */
+  color: white; /* Establece la letra en color blanco. */
+  font-size: 24px; /* Define el tamaño de la letra. */
+  font-weight: 800; /* Aplica un grosor alto a la letra. */
+  background: linear-gradient(135deg, #818cf8, #6366f1); /* Crea un degradado morado y azul. */
+  box-shadow: 0 6px 18px #00000024; /* Agrega una sombra alrededor del símbolo. */
+}
+
+/* Da formato al título de la marca dentro de la barra lateral. */
+.brand h2 {
+  margin: 0 0 5px; /* Elimina el margen superior y agrega espacio inferior. */
+  color: white; /* Establece el título en blanco. */
+  font-size: 17px; /* Define el tamaño del título. */
+  letter-spacing: -0.4px; /* Ajusta el espacio entre las letras. */
+}
+
+/* Da formato al subtítulo de la marca. */
+.brand span {
+  color: #aab9df; /* Utiliza un azul claro para el subtítulo. */
+  font-size: 11px; /* Define un tamaño de texto pequeño. */
+}
+
+/* Diseña la etiqueta que identifica el menú principal. */
+.menu-label {
+  margin: 0 0 13px 10px; /* Ajusta los espacios alrededor de la etiqueta. */
+  color: #899ac4; /* Establece un color azul grisáceo. */
+  font-size: 10px; /* Define el tamaño pequeño del texto. */
+  font-weight: 800; /* Resalta el texto con negrita. */
+  letter-spacing: 1.4px; /* Separa las letras para dar un estilo de etiqueta. */
+}
+
+/* Define el estilo general de los botones de navegación. */
+.nav-item {
+  display: flex; /* Coloca el icono y el texto en una fila. */
+  align-items: center; /* Centra verticalmente los elementos. */
+  gap: 13px; /* Separa el icono del texto. */
+  width: 100%; /* Hace que el botón ocupe todo el ancho disponible. */
+  padding: 14px 15px; /* Agrega espacio interior al botón. */
+  margin-bottom: 8px; /* Separa este botón del siguiente. */
+  border: 0; /* Elimina el borde predeterminado. */
+  border-radius: 11px; /* Redondea las esquinas del botón. */
+  background: transparent; /* Deja el fondo transparente inicialmente. */
+  color: #c2cde6; /* Define el color del texto del botón. */
+  text-align: left; /* Alinea el texto hacia la izquierda. */
+  font-size: 14px; /* Establece el tamaño del texto. */
+  transition: 0.2s; /* Suaviza los cambios visuales. */
+}
+
+/* Ajusta la apariencia de los símbolos de navegación. */
+.nav-item span {
+  width: 22px; /* Reserva un espacio para el símbolo. */
+  font-size: 19px; /* Define el tamaño del símbolo. */
+  text-align: center; /* Centra el símbolo en su espacio. */
+}
+
+/* Cambia el aspecto del botón al pasar el cursor sobre él. */
+.nav-item:hover {
+  background: #ffffff0c; /* Agrega un fondo blanco muy transparente. */
+  color: white; /* Cambia el texto a blanco. */
+}
+
+/* Resalta el botón de la sección actualmente seleccionada. */
+.nav-item.active {
+  background: linear-gradient(100deg, #6366f1, #7c6cf2); /* Aplica un degradado al botón activo. */
+  color: white; /* Muestra el texto activo en blanco. */
+  box-shadow: 0 7px 18px #00000020; /* Agrega una sombra al botón seleccionado. */
+}
+
+/* Coloca la información del sistema al final de la barra lateral. */
+.sidebar-bottom {
+  margin-top: auto; /* Empuja este bloque hacia la parte inferior. */
+  padding: 16px 8px 0; /* Agrega espacio interior. */
+  border-top: 1px solid #ffffff1c; /* Dibuja una línea divisoria superior. */
+  color: #c2cde6; /* Define el color del texto. */
+  font-size: 11px; /* Establece el tamaño de letra. */
+}
+
+/* Diseña el pequeño punto que acompaña el estado del sistema. */
+.online-dot {
+  display: inline-block; /* Permite aplicar dimensiones al punto. */
+  width: 7px; /* Define el ancho del punto. */
+  height: 7px; /* Define la altura del punto. */
+  margin-right: 8px; /* Separa el punto del texto. */
+  border-radius: 50%; /* Convierte el punto en un círculo. */
+  background: #4ade80; /* Establece el color verde. */
+}
+
+/* Da formato al texto secundario de la barra lateral. */
+.sidebar-bottom small {
+  display: block; /* Coloca el texto en una línea independiente. */
+  margin: 12px 0 0; /* Agrega espacio superior. */
+  color: #899ac4; /* Utiliza un color azul grisáceo. */
+  font-size: 10px; /* Define un tamaño de letra pequeño. */
+}
+
+/* Configura el área principal ubicada junto a la barra lateral. */
+.main-content {
+  max-width: 1800px; /* Limita el ancho máximo del contenido. */
+  margin-left: 250px; /* Reserva espacio para la barra lateral fija. */
+  padding: 34px clamp(20px, 3vw, 46px) 22px; /* Define espacios adaptables según el ancho de la pantalla. */
+}
+
+/* Distribuye el título superior y la fecha. */
+.topbar {
+  display: flex; /* Coloca los elementos en una fila. */
+  justify-content: space-between; /* Separa el título y la fecha hacia los extremos. */
+  align-items: center; /* Centra verticalmente los elementos. */
+  gap: 20px; /* Mantiene una separación entre ellos. */
+  margin-bottom: 26px; /* Agrega espacio debajo del encabezado. */
+}
+
+/* Estiliza las pequeñas etiquetas de sección. */
+.eyebrow {
+  color: #7a84a0; /* Define un color gris azulado. */
+  font-size: 10px; /* Establece un tamaño pequeño. */
+  font-weight: 800; /* Resalta el texto. */
+  letter-spacing: 1.5px; /* Separa las letras. */
+}
+
+/* Da formato al título principal de la página. */
+.topbar h1 {
+  margin: 7px 0 0; /* Agrega un pequeño espacio superior. */
+  color: #1d2743; /* Establece un azul oscuro. */
+  font-size: clamp(26px, 3vw, 34px); /* Adapta el tamaño del título al ancho de pantalla. */
+  letter-spacing: -1px; /* Reduce ligeramente el espacio entre letras. */
+}
+
+/* Diseña la etiqueta que contiene la fecha actual. */
+.date-chip {
+  padding: 11px 15px; /* Agrega espacio interior. */
+  border: 1px solid #e6eaf3; /* Dibuja un borde claro. */
+  border-radius: 11px; /* Redondea las esquinas. */
+  background: white; /* Establece un fondo blanco. */
+  color: #55617a; /* Define el color del texto. */
+  font-size: 12px; /* Establece el tamaño de letra. */
+  white-space: nowrap; /* Evita que la fecha se divida en varias líneas. */
+}
+
+/* Diseña el banner de bienvenida con un degradado. */
+.welcome {
+  position: relative; /* Permite posicionar elementos decorativos dentro del banner. */
+  display: flex; /* Organiza el texto y el símbolo en una fila. */
+  align-items: center; /* Centra verticalmente los elementos. */
+  justify-content: space-between; /* Separa el texto del símbolo. */
+  gap: 20px; /* Mantiene espacio entre los elementos. */
+  min-height: 170px; /* Establece la altura mínima del banner. */
+  padding: 30px 35px; /* Agrega espacio interior. */
+  margin-bottom: 25px; /* Separa el banner de la siguiente sección. */
+  overflow: hidden; /* Oculta los elementos decorativos que sobresalen. */
+  border-radius: 19px; /* Redondea las esquinas del banner. */
+  color: white; /* Establece el texto en blanco. */
+  background: linear-gradient(115deg, #243b80 0%, #4f46e5 65%, #8174f5 100%); /* Crea el degradado azul y morado. */
+  box-shadow: 0 12px 28px #4f46e51c; /* Agrega una sombra suave. */
+}
+
+/* Crea círculos decorativos en el fondo del banner. */
+.welcome::after {
+  position: absolute; /* Permite ubicar el círculo respecto al banner. */
+  content: ""; /* Genera el elemento decorativo sin texto. */
+  width: 240px; /* Define el ancho del círculo. */
+  height: 240px; /* Define la altura del círculo. */
+  top: -105px; /* Desplaza el círculo hacia arriba. */
+  right: 80px; /* Separa el círculo del borde derecho. */
+  border: 1px solid #ffffff20; /* Dibuja un borde blanco transparente. */
+  border-radius: 50%; /* Convierte el elemento en un círculo. */
+  box-shadow: 0 0 0 30px #ffffff08, 0 0 0 60px #ffffff06; /* Crea anillos decorativos alrededor. */
+}
+
+/* Da formato a la etiqueta dentro del banner. */
+.welcome-tag {
+  color: #d9ddff; /* Establece un tono claro. */
+  font-size: 10px; /* Define el tamaño de la etiqueta. */
+  font-weight: 800; /* Resalta la etiqueta. */
+  letter-spacing: 1.7px; /* Separa sus letras. */
+}
+
+/* Estiliza el título del banner de bienvenida. */
+.welcome h2 {
+  margin: 12px 0 8px; /* Ajusta los espacios alrededor del título. */
+  font-size: clamp(25px, 3vw, 35px); /* Adapta el tamaño según la pantalla. */
+  letter-spacing: -1px; /* Reduce el espacio entre letras. */
+}
+
+/* Da formato al texto descriptivo del banner. */
+.welcome p {
+  margin: 0; /* Elimina los márgenes predeterminados. */
+  color: #e1e5ff; /* Establece un tono claro para el texto. */
+  font-size: 13px; /* Define el tamaño de letra. */
+}
+
+/* Diseña el símbolo decorativo del banner. */
+.welcome-icon {
+  z-index: 1; /* Coloca el símbolo por encima del fondo decorativo. */
+  display: grid; /* Permite centrar el símbolo. */
+  place-items: center; /* Centra el contenido horizontal y verticalmente. */
+  width: 75px; /* Define el ancho del cuadro. */
+  height: 75px; /* Define la altura del cuadro. */
+  flex-shrink: 0; /* Evita que el cuadro se encoja. */
+  border: 1px solid #ffffff45; /* Dibuja un borde blanco semitransparente. */
+  border-radius: 22px; /* Redondea las esquinas. */
+  background: #ffffff17; /* Aplica un fondo blanco transparente. */
+  color: white; /* Establece el símbolo en blanco. */
+  font-size: 40px; /* Define el tamaño del símbolo. */
+  transform: rotate(7deg); /* Inclina ligeramente el cuadro. */
+  
+
+}
+
+/* Organiza las tarjetas de estadísticas en una cuadrícula. */
+.stats {
+  display: grid; /* Activa el diseño de cuadrícula. */
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* Crea cuatro columnas del mismo tamaño. */
+  gap: 16px; /* Separa las tarjetas. */
+  margin-bottom: 34px; /* Agrega espacio debajo de las estadísticas. */
+}
+
+/* Diseña cada tarjeta de estadísticas. */
+.stat-card {
+  min-width: 0; /* Permite que el contenido se ajuste al ancho de la tarjeta. */
+  padding: 21px 19px; /* Agrega espacio interior. */
+  border: 1px solid #e9edf5; /* Dibuja un borde claro. */
+  border-radius: 16px; /* Redondea las esquinas. */
+  background: white; /* Establece el fondo blanco. */
+  box-shadow: 0 5px 18px #20294305; /* Agrega una sombra muy suave. */
+}
+
+/* Define el estilo común de los iconos de estadísticas. */
+.stat-icon {
+  display: grid; /* Permite centrar el símbolo. */
+  place-items: center; /* Centra el contenido. */
+  width: 39px; /* Define el ancho del icono. */
+  height: 39px; /* Define la altura del icono. */
+  margin-bottom: 16px; /* Separa el icono del texto. */
+  border-radius: 12px; /* Redondea las esquinas. */
+  font-size: 19px; /* Define el tamaño del símbolo. */
+  font-weight: 700; /* Resalta el símbolo. */
+}
+
+/* Aplica colores azules al primer icono. */
+.stat-icon.blue {
+  color: #4263d5; /* Define el color del símbolo. */
+  background: #eaf0ff; /* Establece un fondo azul claro. */
+}
+
+/* Aplica colores morados al segundo icono. */
+.stat-icon.purple {
+  color: #8052d6; /* Define el color del símbolo. */
+  background: #f2eaff; /* Establece un fondo morado claro. */
+}
+
+/* Aplica colores naranjas al tercer icono. */
+.stat-icon.orange {
+  color: #d98227; /* Define el color del símbolo. */
+  background: #fff1df; /* Establece un fondo naranja claro. */
+}
+
+/* Aplica colores verdes al cuarto icono. */
+.stat-icon.green {
+  color: #18976b; /* Define el color del símbolo. */
+  background: #e1f8ed; /* Establece un fondo verde claro. */
+}
+
+/* Organiza el texto descriptivo de cada tarjeta. */
+.stat-card > span {
+  display: block; /* Coloca el texto en una línea independiente. */
+  color: #7a849b; /* Define el color del texto. */
+  font-size: 11px; /* Establece el tamaño de letra. */
+  line-height: 1.5; /* Aumenta el espacio vertical entre líneas. */
+}
+
+/* Destaca el valor principal de cada estadística. */
+.stat-card strong {
+  display: block; /* Coloca el valor en una línea independiente. */
+  margin: 8px 0 7px; /* Agrega espacios alrededor del valor. */
+  color: #202943; /* Define un color azul oscuro. */
+  font-size: clamp(23px, 2.2vw, 30px); /* Adapta el tamaño del valor a la pantalla. */
+  letter-spacing: -0.8px; /* Ajusta el espacio entre letras. */
+  overflow-wrap: anywhere; /* Permite dividir valores largos para evitar desbordamientos. */
+}
+
+/* Ajusta el tamaño de los valores monetarios. */
+.stat-card strong.money {
+  font-size: clamp(17px, 1.5vw, 23px); /* Utiliza un tamaño adaptable para las cantidades de dinero. */
+}
+
+/* Estiliza el texto secundario de las estadísticas. */
+.stat-card small {
+  color: #9aa3b7; /* Define un tono gris claro. */
+  font-size: 10px; /* Establece un tamaño pequeño. */
+}
+
+/* Distribuye el título de sección y el contador de registros. */
+.section-heading {
+  display: flex; /* Coloca los elementos en una fila. */
+  align-items: end; /* Alinea los elementos por la parte inferior. */
+  justify-content: space-between; /* Separa el título del contador. */
+  gap: 14px; /* Mantiene una separación entre los elementos. */
+  margin-bottom: 18px; /* Agrega espacio debajo del encabezado. */
+}
+
+/* Da formato al título de cada sección principal. */
+.section-heading h2 {
+  margin: 7px 0 0; /* Agrega un pequeño espacio superior. */
+  font-size: 22px; /* Define el tamaño del título. */
+  letter-spacing: -0.5px; /* Ajusta el espacio entre letras. */
+}
+
+/* Diseña la etiqueta que muestra la cantidad de registros. */
+.count-badge {
+  padding: 8px 11px; /* Agrega espacio interior. */
+  border-radius: 9px; /* Redondea las esquinas. */
+  background: #e9edff; /* Establece un fondo azul claro. */
+  color: #4f46c9; /* Define el color del texto. */
+  font-size: 11px; /* Establece el tamaño de letra. */
+  white-space: nowrap; /* Evita que el contador se divida en varias líneas. */
+}
+
+/* Diseña el mensaje de confirmación o información. */
+.message {
+  display: flex; /* Coloca el icono, texto y botón en una fila. */
+  align-items: center; /* Centra verticalmente los elementos. */
+  gap: 10px; /* Separa los elementos del mensaje. */
+  padding: 13px 15px; /* Agrega espacio interior. */
+  margin-bottom: 17px; /* Separa el mensaje del contenido siguiente. */
+  border: 1px solid #c8f0da; /* Dibuja un borde verde claro. */
+  border-radius: 10px; /* Redondea las esquinas. */
+  background: #edfff4; /* Establece un fondo verde muy claro. */
+  color: #18794e; /* Define el color del texto. */
+  font-size: 13px; /* Establece el tamaño de letra. */
+}
+
+/* Da formato al botón que cierra el mensaje. */
+.close-message {
+  margin-left: auto; /* Empuja el botón hacia el extremo derecho. */
+  border: 0; /* Elimina el borde. */
+  background: transparent; /* Mantiene el fondo transparente. */
+  color: #18794e; /* Define el color de la cruz. */
+  font-size: 20px; /* Establece el tamaño de la cruz. */
+}
+
+/* Diseña los paneles que contienen formularios y tablas. */
+.panel {
+  padding: 25px; /* Agrega espacio interior. */
+  margin-bottom: 22px; /* Separa un panel del siguiente. */
+  border: 1px solid #e8ecf4; /* Dibuja un borde claro. */
+  border-radius: 16px; /* Redondea las esquinas. */
+  background: white; /* Establece un fondo blanco. */
+  box-shadow: 0 5px 22px #20294305; /* Agrega una sombra suave. */
+}
+
+/* Distribuye el título y el símbolo de cada panel. */
+.panel-heading {
+  display: flex; /* Coloca los elementos en una fila. */
+  align-items: center; /* Centra verticalmente el contenido. */
+  justify-content: space-between; /* Separa el título del símbolo. */
+  gap: 15px; /* Mantiene espacio entre los elementos. */
+  margin-bottom: 22px; /* Separa el encabezado del contenido del panel. */
+}
+
+/* Estiliza el título de los paneles. */
+.panel-heading h3 {
+  margin: 0 0 7px; /* Elimina el margen superior y agrega espacio inferior. */
+  color: #27314d; /* Define el color del título. */
+  font-size: 16px; /* Establece el tamaño del título. */
+}
+
+/* Estiliza la descripción de los paneles. */
+.panel-heading p {
+  margin: 0; /* Elimina los márgenes predeterminados. */
+  color: #929bb0; /* Define un color gris azulado. */
+  font-size: 12px; /* Establece el tamaño del texto. */
+}
+
+/* Diseña el cuadro del símbolo de cada panel. */
+.panel-symbol {
+  display: grid; /* Permite centrar el símbolo. */
+  place-items: center; /* Centra el contenido. */
+  width: 38px; /* Define el ancho del cuadro. */
+  height: 38px; /* Define la altura del cuadro. */
+  flex-shrink: 0; /* Evita que el cuadro se encoja. */
+  border-radius: 11px; /* Redondea las esquinas. */
+  background: #f0efff; /* Establece un fondo morado claro. */
+  color: #635bdb; /* Define el color del símbolo. */
+  font-size: 23px; /* Establece el tamaño del símbolo. */
+}
+
+/* Organiza los campos de los formularios en dos columnas. */
+.form-grid {
+  display: grid; /* Activa la cuadrícula. */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Crea dos columnas iguales. */
+  gap: 16px 20px; /* Define la separación vertical y horizontal entre campos. */
+}
+
+/* Organiza las etiquetas y los campos de los formularios. */
+.form-grid label {
+  display: flex; /* Activa la distribución flexible. */
+  flex-direction: column; /* Coloca la etiqueta encima del campo. */
+  gap: 9px; /* Separa el texto del campo de entrada. */
+  color: #535f79; /* Define el color de las etiquetas. */
+  font-size: 12px; /* Establece el tamaño del texto. */
+  font-weight: 700; /* Resalta las etiquetas. */
+}
+
+/* Define el estilo común de campos, selectores y buscador. */
+.form-grid input,
+.form-grid select,
+.search-input,
+.status-select {
+  width: 100%; /* Ocupa todo el ancho disponible. */
+  min-width: 0; /* Permite que el campo se adapte a espacios pequeños. */
+  padding: 12px 13px; /* Agrega espacio interior. */
+  border: 1px solid #e0e5ef; /* Dibuja un borde claro. */
+  border-radius: 9px; /* Redondea las esquinas. */
+  outline: none; /* Elimina el contorno predeterminado del navegador. */
+  background: #fbfcff; /* Establece un fondo casi blanco. */
+  color: #27314d; /* Define el color del texto. */
+  font-size: 12px; /* Establece el tamaño de letra. */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Suaviza los cambios de borde y sombra. */
+}
+
+/* Resalta los campos del formulario y el buscador cuando están seleccionados. */
+.form-grid input:focus,
+.form-grid select:focus,
+.search-input:focus {
+  border-color: #7972ef; /* Cambia el borde a morado. */
+  box-shadow: 0 0 0 3px #7972ef18; /* Agrega un halo suave alrededor del campo. */
+}
+
+/* Ubica el botón del formulario en una fila completa. */
+.form-actions {
+  grid-column: 1 / -1; /* Hace que el contenedor ocupe todas las columnas. */
+  display: flex; /* Permite organizar el botón. */
+  justify-content: flex-start; /* Alinea el botón a la izquierda. */
+  margin-top: 2px; /* Agrega un pequeño espacio superior. */
+}
+
+/* Diseña el botón principal de registro. */
+.primary-button {
+  padding: 12px 18px; /* Agrega espacio interior al botón. */
+  border: 0; /* Elimina el borde. */
+  border-radius: 9px; /* Redondea las esquinas. */
+  background: linear-gradient(100deg, #5148db, #7467ed); /* Aplica un degradado morado. */
+  color: white; /* Establece el texto en blanco. */
+  font-size: 12px; /* Define el tamaño del texto. */
+  font-weight: 700; /* Resalta el texto del botón. */
+  box-shadow: 0 5px 13px #5148db24; /* Agrega una sombra suave. */
+  transition: transform 0.2s, box-shadow 0.2s; /* Suaviza el movimiento y la sombra al interactuar. */
+}
+
+/* Cambia la apariencia del botón principal al pasar el cursor. */
+.primary-button:hover {
+  transform: translateY(-1px); /* Eleva ligeramente el botón. */
+  box-shadow: 0 7px 17px #5148db35; /* Aumenta la sombra. */
+}
+
+/* Limita el ancho del buscador y lo separa de la tabla. */
+.search-input {
+  max-width: 410px; /* Establece el ancho máximo del buscador. */
+  margin-bottom: 18px; /* Agrega espacio debajo del campo. */
+  background: #fbfcff; /* Mantiene el fondo claro. */
+}
+
+/* Permite que las tablas se desplacen horizontalmente si son muy anchas. */
+.table-wrap {
+  width: 100%; /* Ocupa todo el ancho disponible. */
+  overflow-x: auto; /* Agrega desplazamiento horizontal cuando sea necesario. */
+}
+
+/* Define el tamaño y la organización general de las tablas. */
+table {
+  width: 100%; /* Hace que la tabla ocupe todo el ancho disponible. */
+  border-collapse: collapse; /* Une los bordes de las celdas. */
+  text-align: left; /* Alinea el contenido a la izquierda. */
+  white-space: nowrap; /* Evita que el texto de las celdas se divida en varias líneas. */
+}
+
+/* Da formato al encabezado de las tablas. */
+thead {
+  background: #f7f8fc; /* Establece un fondo gris muy claro. */
+}
+
+/* Estiliza los títulos de las columnas. */
+th {
+  padding: 13px 14px; /* Agrega espacio interior a cada encabezado. */
+  color: #818ba2; /* Define el color del texto. */
+  font-size: 10px; /* Establece un tamaño pequeño. */
+  font-weight: 800; /* Resalta los encabezados. */
+  letter-spacing: 0.7px; /* Separa las letras. */
+  text-transform: uppercase; /* Convierte visualmente el texto a mayúsculas. */
+}
+
+/* Da formato a las celdas que contienen los datos. */
+td {
+  padding: 15px 14px; /* Agrega espacio interior a cada celda. */
+  border-bottom: 1px solid #eff1f6; /* Dibuja una línea divisoria inferior. */
+  color: #5c6680; /* Define el color del contenido. */
+  font-size: 12px; /* Establece el tamaño de letra. */
+}
+
+/* Elimina la línea inferior de la última fila de cada tabla. */
+tbody tr:last-child td {
+  border-bottom: 0; /* Quita el borde de las últimas celdas. */
+}
+
+/* Resalta suavemente una fila cuando el cursor pasa sobre ella. */
+tbody tr:hover {
+  background: #fafaff; /* Cambia el fondo a un tono casi blanco con matiz morado. */
+}
+
+/* Destaca los nombres y datos principales dentro de las celdas. */
+td strong {
+  display: block; /* Coloca el texto en una línea independiente. */
+  color: #29334f; /* Define un color oscuro. */
+  font-size: 12px; /* Establece el tamaño del texto. */
+}
+
+/* Da formato al texto secundario, como el identificador o el producto. */
+.subtext {
+  display: block; /* Coloca el texto secundario debajo del principal. */
+  margin-top: 5px; /* Agrega espacio superior. */
+  color: #a0a8b9; /* Define un color gris claro. */
+  font-size: 10px; /* Establece un tamaño pequeño. */
+}
+
+/* Diseña la etiqueta que indica las existencias del producto. */
+.stock-badge {
+  display: inline-block; /* Permite aplicar relleno y dimensiones. */
+  padding: 6px 9px; /* Agrega espacio interior. */
+  border-radius: 7px; /* Redondea las esquinas. */
+  background: #e5f8ee; /* Utiliza un fondo verde claro. */
+  color: #19835b; /* Define el texto en verde oscuro. */
+  font-size: 10px; /* Establece el tamaño de letra. */
+  font-weight: 700; /* Resalta el número de unidades. */
+}
+
+/* Cambia el estilo de la etiqueta cuando el producto no tiene existencias. */
+.stock-badge.out {
+  background: #ffe8e8; /* Establece un fondo rojo claro. */
+  color: #c23b4b; /* Define un texto rojo oscuro. */
+}
+
+/* Ajusta el selector que permite cambiar el estado de un pedido. */
+.status-select {
+  width: auto; /* Adapta el ancho al contenido. */
+  max-width: 140px; /* Limita el ancho del selector. */
+  padding: 8px 9px; /* Agrega espacio interior. */
+  border: 0; /* Elimina el borde. */
+  font-size: 11px; /* Establece el tamaño del texto. */
+  font-weight: 700; /* Resalta el estado. */
+}
+
+/* Utiliza tonos amarillos para los pedidos pendientes. */
+.status-select.pendiente {
+  background: #fff2db; /* Establece un fondo amarillo claro. */
+  color: #a86812; /* Define un texto naranja oscuro. */
+}
+
+/* Utiliza tonos azules para los pedidos en proceso. */
+.status-select.en-proceso {
+  background: #e9edff; /* Establece un fondo azul claro. */
+  color: #4d57c8; /* Define un texto azul oscuro. */
+}
+
+/* Utiliza tonos verdes para los pedidos entregados. */
+.status-select.entregado {
+  background: #e0f8ec; /* Establece un fondo verde claro. */
+  color: #188158; /* Define un texto verde oscuro. */
+}
+
+/* Diseña el mensaje que aparece cuando no hay resultados. */
+.empty-state {
+  padding: 32px 15px; /* Agrega espacio interior. */
+  text-align: center; /* Centra el texto y los elementos. */
+  border: 1px dashed #dce2ee; /* Dibuja un borde discontinuo. */
+  border-radius: 12px; /* Redondea las esquinas. */
+  background: #fbfcff; /* Establece un fondo claro. */
+}
+
+/* Diseña el icono que aparece en el mensaje sin resultados. */
+.empty-state > div {
+  display: grid; /* Permite centrar el icono. */
+  place-items: center; /* Centra el contenido. */
+  width: 48px; /* Define el ancho del cuadro. */
+  height: 48px; /* Define la altura del cuadro. */
+  margin: 0 auto 13px; /* Centra el cuadro y agrega espacio debajo. */
+  border-radius: 14px; /* Redondea las esquinas. */
+  background: #eeefff; /* Establece un fondo morado claro. */
+  color: #6862d9; /* Define el color del icono. */
+  font-size: 25px; /* Establece el tamaño del icono. */
+}
+
+/* Da formato al título del mensaje sin resultados. */
+.empty-state h3 {
+  margin: 0 0 7px; /* Elimina el margen superior y agrega espacio inferior. */
+  color: #3b4560; /* Define el color del título. */
+  font-size: 14px; /* Establece el tamaño del título. */
+}
+
+/* Estiliza la descripción del mensaje sin resultados. */
+.empty-state p {
+  margin: 0; /* Elimina los márgenes predeterminados. */
+  color: #929bb0; /* Define un color gris azulado. */
+  font-size: 12px; /* Establece el tamaño del texto. */
+}
+
+/* Diseña el aviso que se muestra cuando todavía no hay productos para pedir. */
+.notice {
+  padding: 15px; /* Agrega espacio interior. */
+  border: 1px solid #f4dfad; /* Dibuja un borde amarillo claro. */
+  border-radius: 10px; /* Redondea las esquinas. */
+  background: #fff9e9; /* Establece un fondo amarillo muy claro. */
+  color: #94641b; /* Define el color del texto de aviso. */
+  font-size: 13px; /* Establece el tamaño del texto. */
+}
+
+/* Distribuye el contenido del pie de página. */
+footer {
+  display: flex; /* Coloca los elementos en una fila. */
+  justify-content: space-between; /* Separa el nombre del proyecto y su descripción. */
+  gap: 12px; /* Mantiene una separación entre ambos textos. */
+  padding: 23px 0 8px; /* Agrega espacio interior vertical. */
+  color: #9aa3b7; /* Define el color general del pie de página. */
+  font-size: 10px; /* Establece un tamaño pequeño. */
+}
+
+/* Resalta el nombre de la tienda en el pie de página. */
+footer span:first-child {
+  color: #6561ca; /* Utiliza un tono morado. */
+  font-weight: 800; /* Aplica negrita. */
+  letter-spacing: 1px; /* Separa las letras. */
+}
+
+/* Adapta la interfaz a pantallas medianas. */
+@media (max-width: 1150px) {
+  /* Cambia las estadísticas a dos columnas. */
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Crea dos columnas iguales. */
+  }
+
+  /* Reduce los espacios laterales del contenido principal. */
+  .main-content {
+    padding-right: 22px; /* Reduce el espacio derecho. */
+    padding-left: 22px; /* Reduce el espacio izquierdo. */
+  }
+}
+
+/* Adapta la interfaz a pantallas pequeñas, como celulares. */
+@media (max-width: 700px) {
+  /* Hace que la barra lateral deje de estar fija. */
+  .sidebar {
+    position: static; /* Devuelve la barra al flujo normal de la página. */
+    width: 100%; /* Hace que ocupe todo el ancho disponible. */
+    padding: 17px; /* Reduce el espacio interior. */
+  }
+
+  /* Reduce el margen inferior de la marca. */
+  .brand {
+    margin-bottom: 20px; /* Deja menos espacio debajo del nombre de la tienda. */
+  }
+
+  /* Agrega un pequeño espacio encima del título del menú. */
+  .menu-label {
+    margin-top: 5px; /* Separa la etiqueta de los elementos anteriores. */
+  }
+
+  /* Mantiene los botones de navegación a todo lo ancho. */
+  .nav-item {
+    width: 100%; /* Ocupa todo el ancho disponible. */
+  }
+
+  /* Oculta la información inferior de la barra lateral en móviles. */
+  .sidebar-bottom {
+    display: none; /* Evita ocupar espacio innecesario. */
+  }
+
+  /* Ajusta el contenido principal para eliminar el espacio de la barra fija. */
+  .main-content {
+    margin-left: 0; /* Elimina el margen lateral de escritorio. */
+    padding: 22px 15px; /* Reduce el espacio interior. */
+  }
+
+  /* Reduce el tamaño del banner en pantallas pequeñas. */
+  .welcome {
+    min-height: 145px; /* Disminuye la altura mínima. */
+    padding: 24px; /* Reduce el espacio interior. */
+  }
+
+  /* Reduce el tamaño del símbolo del banner. */
+  .welcome-icon {
+    width: 52px; /* Reduce el ancho. */
+    height: 52px; /* Reduce la altura. */
+    font-size: 28px; /* Reduce el tamaño del símbolo. */
+  }
+
+  /* Reduce la separación entre tarjetas estadísticas. */
+  .stats {
+    gap: 10px; /* Disminuye el espacio entre tarjetas. */
+  }
+
+  /* Reduce el espacio interior de las tarjetas estadísticas. */
+  .stat-card {
+    padding: 15px 12px; /* Hace las tarjetas más compactas. */
+  }
+
+  /* Reduce el espacio interior de los paneles. */
+  .panel {
+    padding: 18px; /* Ajusta los paneles a la pantalla. */
+  }
+
+  /* Coloca los campos del formulario en una sola columna. */
+  .form-grid {
+    grid-template-columns: 1fr; /* Crea una única columna. */
+  }
+
+  /* Alinea el encabezado de sección al comienzo. */
+  .section-heading {
+    align-items: start; /* Evita que los elementos se estiren verticalmente. */
+  }
+
+  /* Coloca los elementos del pie de página en columnas. */
+  footer {
+    flex-direction: column; /* Muestra cada texto en una línea separada. */
+  }
+}
+
+/* Realiza ajustes adicionales para pantallas de hasta 390 píxeles. */
+@media (max-width: 390px) {
+  /* Reduce el espacio interior y el tamaño de la fecha. */
+  .date-chip {
+    padding: 9px; /* Disminuye el relleno. */
+    font-size: 10px; /* Reduce el tamaño del texto. */
+  }
+
+  /* Oculta el símbolo del banner para ahorrar espacio. */
+  .welcome-icon {
+    display: none; /* Evita que el símbolo reduzca el espacio del texto. */
+  }
+
+  /* Mantiene las tarjetas estadísticas en dos columnas. */
+  .stats {
+    grid-template-columns: 1fr 1fr; /* Divide el espacio en dos columnas iguales. */
+    
+    
+  }
+}
